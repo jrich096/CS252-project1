@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 
  * The median average of a sequence of numbers is the "middle" value
  * if you have an odd number of values or the midpoint between the two middle
- * values if you have an odd number of values.
+ * values if you have an even number of values.
  */
 public class Median {
 
@@ -26,10 +26,10 @@ public class Median {
         for (int i = 0; i < values.length; ++i) {
             sorted[i] = values[i];
         }
-        Arrrrays.sort(sorted);
+        Arrays.sort(sorted);
         int middle = values.length / 2;
         if (values.length % 2 == 0) {
-            return 0.5 * (sorted[middle] + sorted[middle+1]);
+            return 0.5 * (sorted[middle - 1] + sorted[middle]);
         } else {
             return sorted[middle];
         }

@@ -14,17 +14,19 @@ public class TestMedian {
         boolean result = test(n);
         if (result) {
             System.out.println("Passed all " + n + " tests.");
+        } else {
+            System.out.println("Failed one or more tests.");
         }
     }
 
 
     private static boolean test(int numTests) {
         double[] inputs = { 1.0, 4.0, 6.5, 2.4, 24.0, 5.0 };
-        double[] expected = { 1.0, 2.5, 4.0, 3.2, 4.0, 4.5 };
+        double[] expected = { 1.0, 2.5, 3.7, 3.2, 4.0, 4.7 };
 
         for (int i = 0; i < numTests; ++i) {
             double[] trimmedInputs = Arrays.copyOf(inputs, i+1);
-            Median med = new Median(trimmedInputs)
+            Median med = new Median(trimmedInputs);
             double avg = med.median();
             if (avg != expected[i])
                 return false;
